@@ -1,0 +1,36 @@
+<launch>
+
+	<!-- urg -->
+	<include file="$(find scratch_ros)/launch/urg.launch"/>
+
+	<!-- rospeex -->
+	<include file="$(find scratch_ros)/launch/rospeex.launch"/>
+
+	<!-- amcl -->
+	<include file="$(find scratch_ros)/launch/amcl.launch"/>
+
+	<!-- xtion -->
+	<include file="$(find turtlebot_bringup)/launch/3dsensor.launch"/>
+
+	<!-- waypoint_nav -->
+	<node pkg="scratch_ros" type="waypoint_nav.py" name="waypoint_nav" output="screen">
+		<rosparam command="load" file="$(find scratch_ros)/param/ed_final_saved_location.yaml"/>
+	</node>
+
+	<!-- object by fram-->
+	<include file="$(find moveit_control)/launch/turtlebot_object_by_frame.launch"/>
+
+	<!-- positioning -->
+	<node pkg="odom_base_controller" type="kobuki_controller_service.py" name="kobuki_controller_service" output="screen"/>
+
+	<!-- caffe -->
+	<node pkg="cvtest" type="image_converter" name="image_converter" output="screen" respawn="true">
+		<rosparam command="load" file="$(find cvtest)/config/paramater.yaml"/>
+	</node>
+
+	<!-- pcl -->
+	<node pkg="timed_roslaunch" type="timed_roslaunch.sh" args="10 pcl_test ObjectDetect.launch" name="ObjectDetect_timed_roslaunch" output="screen"/>
+
+	<node name="scratch_connector" pkg="scratch_ros" type="scratch_connector2.py" output="screen"/>
+
+</launch>

@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find rospeex_launch)/launch/rospeex_local.launch"/>
+  <node name="rospeex_audiomonitor" pkg="rospeex_audiomonitor" type="audio_monitor_epd"/>
+  <node name="rospeex_ctrl" pkg="robocup2017_gpsr" type="rospeex.py" output="screen" />
+</launch>
+

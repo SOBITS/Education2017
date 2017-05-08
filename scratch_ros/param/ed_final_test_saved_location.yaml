@@ -1,0 +1,24 @@
+
+# kitchen #
+
+/kitchen_translation_x: 1.9097
+/kitchen_translation_y: -2.58213
+/kitchen_translation_z: 0
+
+/kitchen_rotation_x: 0
+/kitchen_rotation_y: 0
+/kitchen_rotation_z: -0.0157946
+/kitchen_rotation_w: 0.999875
+#======================================#
+
+# table #
+
+/table_translation_x: 2.14092
+/table_translation_y: -1.04362
+/table_translation_z: 0
+
+/table_rotation_x: 0
+/table_rotation_y: 0
+/table_rotation_z: 0.375416
+/table_rotation_w: 0.926857
+#======================================#
